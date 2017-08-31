@@ -76,3 +76,4 @@ logfile*
 celerybeat-*
 *.pid
 *.dat
+Procfile
