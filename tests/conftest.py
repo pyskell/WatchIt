@@ -8,21 +8,10 @@
 
 import pytest
 from app import app as the_app, db as the_db, init_app
-#from app.init_app import init_app
 from app.manage_commands import init_db, create_user, create_wallet
-#from app.models import User, Wallet
 from app.networks import Networks
 
-
-# Initialize the Flask-App with test-specific settings
-#init_app(the_app, dict(
-#    TESTING=True,  # Propagate exceptions
-#    LOGIN_DISABLED=False,  # Enable @register_required
-#    MAIL_SUPPRESS_SEND=True,  # Disable Flask-Mail send
-#    SERVER_NAME="localhost",  # Enable url_for() without request context
-#    SQLALCHEMY_DATABASE_URI="sqlite:///:memory:",  # In-memory SQLite DB
-#    WTF_CSRF_ENABLED=False,  # Disable CSRF form validation
-#))
+# TODO: Update so that the ETC_WALLET_ADDRESS points to the correct test address even when running in production.
 
 the_app.config.update(dict(
     TESTING=True,  # Propagate exceptions
