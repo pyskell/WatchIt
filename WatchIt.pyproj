@@ -39,7 +39,7 @@
     <Content Include="app\templates\layout.html" />
     <Content Include="app\templates\pages\admin_page.html" />
     <Content Include="app\templates\pages\home_page.html" />
-    <Content Include="app\templates\pages\user_page.html" />
+    <Content Include="app\templates\pages\help_page.html" />
     <Content Include="app\templates\pages\user_profile_page.html" />
     <Content Include="app\templates\pages\user_wallets_page.html" />
     <Content Include="LICENSE.txt" />

@@ -1,0 +1,28 @@
+{% extends "common/page_base.html" %}  {# common/page_base.html extends layout.html #}
+
+{% block content %}
+<div>
+    <p>To register an address for tracking with WatchIt you'll need to send a transaction on the Ethereum Classic blockchain.</p>
+</div>
+
+<div>
+    <ol class="list-group">
+        <li class="list-group-item">1. Open up your wallet as you normally would to send ETC.</li>
+        <li class="list-group-item">2. Create a transaction going to address: <input readonly size="44" value="0x{{etc_wallet_address}}" /></li>
+        <li class="list-group-item">3. You can leave the amount to send as zero, any amount you enter will be considered a donation</li>
+        <li class="list-group-item">4. Copy/Paste your "Public UUID" to the Input Data/Additional Data box: <input readonly size="32" value="0x{{current_user.public_uuid}}" /></li>
+        <li class="list-group-item">5. Send your transaction</li>
+    </ol>
+</div>
+
+<div>
+    <p>
+        Please note:
+        Donations are appreciated, they'd help me add functionality (ie. more coins) to this site and make it prettier. Maybe even mobile alerts in the future.
+    </p>
+    <p>
+        We can not support monitoring wallets on exchanges (ie. Poloniex, Kraken, Bitfinex, Bittrex, Coinbase, Gemini, etc.).
+        This is due to exchange wallets operating differently from normal wallets.
+    </p>
+</div>
+{% endblock %}

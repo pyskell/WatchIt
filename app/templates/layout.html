@@ -30,6 +30,7 @@
         </div>
         <div class="with-margins">
             <a href="{{ url_for('home_page') }}">Home</a>
+            &nbsp; | &nbsp; <a href="{{url_for('help_page')}}">How To Use</a>
             &nbsp; | &nbsp; <a href="{{ url_for('user_wallets_page') }}">Wallets</a>
             {% if current_user.is_authenticated %}
                  &nbsp; | &nbsp; <a href="{{ url_for('user_profile_page') }}">Profile</a>

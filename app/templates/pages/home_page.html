@@ -1,22 +1,15 @@
 {% extends "common/page_base.html" %}  {# common/page_base.html extends layout.html #}
 
 {% block content %}
-<h1>Home page</h1>
 
-<p>This page is accessible to any user (signed in or not)</p>
+<p>WatchIt watches your Ethereum Classic wallets and emails you if their balances change. We'll be supporting more Cryptocurrencies in the future.</p>
 
 {% if not current_user.is_authenticated %}
 <p>
-To view the User page, you must
-<a href="{{ url_for('user.login') }}">Sign in</a> or
-<a href="{{ url_for('user.register') }}">Register</a>.
+To manage your wallets, please
+<a href="{{ url_for('user.login') }}">sign in</a> or
+<a href="{{ url_for('user.register') }}">register</a>.
 </p>
 {% endif %}
-
-<p>
-    Test users:<br/>
-    - user@example.com / Password1<br/>
-    - admin@example.com / Password1
-</p>
 
 {% endblock %}
