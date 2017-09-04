@@ -1,28 +1,44 @@
 {% extends "common/page_base.html" %}  {# common/page_base.html extends layout.html #}
 
 {% block content %}
-<div>
-    <p>To register an address for tracking with WatchIt you'll need to send a transaction on the Ethereum Classic blockchain.</p>
-</div>
-
-<div>
-    <ol class="list-group">
-        <li class="list-group-item">1. Open up your wallet as you normally would to send ETC.</li>
-        <li class="list-group-item">2. Create a transaction going to address: <input readonly size="44" value="0x{{etc_wallet_address}}" /></li>
-        <li class="list-group-item">3. You can leave the amount to send as zero, any amount you enter will be considered a donation</li>
-        <li class="list-group-item">4. Copy/Paste your "Public UUID" to the Input Data/Additional Data box: <input readonly size="32" value="0x{{current_user.public_uuid}}" /></li>
-        <li class="list-group-item">5. Send your transaction</li>
-    </ol>
-</div>
-
-<div>
+<div class="container-fluid"> 
+    <div>
+        <p>To register an address for tracking with WatchIt you'll need to send a transaction on the Ethereum Classic blockchain.</p>
+    </div>
+    <div>
+        <ol class="list-group">
+            <li class="list-group-item">1. Open up your wallet as you normally would to send ETC.</li>
+            <li class="list-group-item">2. Create a transaction going to address: <input readonly size="44" value="0x{{etc_wallet_address}}" /></li>
+            <li class="list-group-item">3. You can leave the amount to send as zero. If you do send any ETC it will be considered a donation.</li>
+            <li class="list-group-item">4. Copy/Paste your "Public UUID" to the Input Data/Additional Data box: <input readonly size="32" value="0x{{current_user.public_uuid}}" />
+                <span class="help-block small">Note: You may need to select an "advanced" option in your wallet to do this</span>
+            </li>
+            <li class="list-group-item">5. Send your transaction</li>
+        </ol>
+    </div>
+    <div>
+        <p>
+            Once a wallet is registered we'll send you an email whenever its balance increases or decreases. Email alerts are limited to a maximum of once every {{email_time_limit.seconds // 60}} minutes.
+        </p>
+    </div>
     <p>
-        Please note:
-        Donations are appreciated, they'd help me add functionality (ie. more coins) to this site and make it prettier. Maybe even mobile alerts in the future.
+        
+    <hr>
     </p>
-    <p>
-        We can not support monitoring wallets on exchanges (ie. Poloniex, Kraken, Bitfinex, Bittrex, Coinbase, Gemini, etc.).
-        This is due to exchange wallets operating differently from normal wallets.
-    </p>
+    <div>
+        <p>
+            Please note:
+        </p>
+        <p>
+            Donations are appreciated, they'd help me add functionality (ie. more coins) to this site and make it prettier. Maybe even mobile alerts in the future.
+            Also website hosting and emails ain't free ya know.
+        </p>
+        <p class="h4">
+            <b>
+                We CAN NOT support monitoring wallets on exchanges (ie. Poloniex, Kraken, Bitfinex, Bittrex, Coinbase, Gemini, etc.).
+                This is due to exchange wallets operating differently from normal wallets.
+            </b>
+        </p>
+    </div>
 </div>
 {% endblock %}

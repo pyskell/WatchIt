@@ -9,7 +9,7 @@ from flask import request, url_for
 from flask_user import current_user, login_required
 from app import app, db
 from app.models import UserProfileForm, UserWalletsForm, Wallet
-from app.local_settings import ETC_WALLET_ADDRESS
+from app.local_settings import ETC_WALLET_ADDRESS, EMAIL_TIME_LIMIT
 
 # The Home page is accessible to anyone
 @app.route("/")
@@ -21,7 +21,9 @@ def home_page():
 @app.route("/help")
 @login_required  # Limits access to authenticated users
 def help_page():
-    return render_template("pages/help_page.html", etc_wallet_address = ETC_WALLET_ADDRESS)
+    return render_template("pages/help_page.html", 
+                            etc_wallet_address = ETC_WALLET_ADDRESS,
+                            email_time_limit = EMAIL_TIME_LIMIT)
 
 
 # The Admin page is accessible to users with the "admin" role
