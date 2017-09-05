@@ -70,7 +70,7 @@ class Wallet(db.Model):
     user_id = db.Column(db.Integer(), db.ForeignKey("users.id", ondelete="CASCADE"))
     address = db.Column(db.String(255))
     network = db.Column(db.Enum(Networks))
-    balance = db.Column(db.Integer(), default=0)
+    balance = db.Column(db.BigInteger(), default=0)
 
 class RPCInfo(db.Model):
     __tablename__ = "rpcinfo"
