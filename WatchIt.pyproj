@@ -24,11 +24,6 @@
     <VisualStudioVersion Condition=" '$(VisualStudioVersion)' == '' ">10.0</VisualStudioVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Content Include="app\static\bootstrap\css\bootstrap.min.css" />
-    <Content Include="app\static\bootstrap\js\bootstrap.min.js" />
-    <Content Include="app\static\bootstrap\js\html5shiv.min.js" />
-    <Content Include="app\static\bootstrap\js\jquery.min.js" />
-    <Content Include="app\static\bootstrap\js\respond.min.js" />
     <Content Include="app\static\css\app.css" />
     <Content Include="app\templates\common\form_macros.html" />
     <Content Include="app\templates\common\page_base.html" />
