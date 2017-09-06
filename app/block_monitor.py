@@ -20,11 +20,7 @@ def find_changed_wallets(users, from_block):
     changed_wallets = {}
 
     for user in users:
-        import pytest; pytest.set_trace()
-    
         if user.last_emailed_at - user.email_limit < datetime.now():
-            import pytest; pytest.set_trace()
-
             for wallet in user.wallets:
                 latest_balance = get_latest_balance(wallet.network, wallet.address)
                 if wallet.balance != latest_balance:
