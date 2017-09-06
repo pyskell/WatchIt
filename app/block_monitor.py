@@ -20,7 +20,8 @@ def find_changed_wallets(users, from_block):
     changed_wallets = {}
 
     for user in users:
-        if user.last_emailed_at + user.email_limit < datetime.now():
+        time = datetime.now()
+        if user.last_emailed_at + user.email_limit < time:
             for wallet in user.wallets:
                 latest_balance = get_latest_balance(wallet.network, wallet.address)
                 if wallet.balance != latest_balance:
@@ -30,6 +31,7 @@ def find_changed_wallets(users, from_block):
         
             # Need to track the last block we went through.
             # They also need to be individual to each user.
+            user.last_emailed_at = time
             user.last_etc_block = from_block
 
     db.session.commit()
