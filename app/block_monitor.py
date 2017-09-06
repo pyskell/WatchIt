@@ -20,7 +20,7 @@ def find_changed_wallets(users, from_block):
     changed_wallets = {}
 
     for user in users:
-        if user.last_emailed_at - user.email_limit < datetime.now():
+        if user.last_emailed_at + user.email_limit > datetime.now():
             for wallet in user.wallets:
                 latest_balance = get_latest_balance(wallet.network, wallet.address)
                 if wallet.balance != latest_balance:
