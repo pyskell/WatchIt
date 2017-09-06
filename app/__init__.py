@@ -6,16 +6,25 @@ from flask_wtf.csrf import CSRFProtect
 from flask_user import UserManager, SQLAlchemyAdapter
 
 from flask_mail import Mail
-from app.local_settings import CELERY_BROKER_URL, MAIL_DEFAULT_SENDER, MAIL_DEFAULT_SENDER_EMAIL, SQLALCHEMY_TRACK_MODIFICATIONS
+from app.local_settings import CELERY_BROKER_URL, MAIL_DEFAULT_SENDER, MAIL_DEFAULT_SENDER_EMAIL, SQLALCHEMY_TRACK_MODIFICATIONS, MAIL_SERVER, MAIL_PORT, MAIL_USE_SSL, MAIL_USE_TLS, MAIL_USERNAME, MAIL_PASSWORD, ADMINS
 
 app = Flask(__name__)           # The WSGI compliant web application object
 db = SQLAlchemy()               # Setup Flask-SQLAlchemy
 manager = Manager(app)          # Setup Flask-Script
+
+# TODO: Fix this, this cannot be the correct way.
 app.config.update(
     CELERY_BROKER_URL=CELERY_BROKER_URL,
+    MAIL_SERVER=MAIL_SERVER,
+    MAIL_PORT=MAIL_PORT,
+    MAIL_USE_SSL=MAIL_USE_SSL,
+    MAIL_USE_TLS=MAIL_USE_TLS,
+    MAIL_USERNAME=MAIL_USERNAME,
+    MAIL_PASSWORD=MAIL_PASSWORD,
     MAIL_DEFAULT_SENDER=MAIL_DEFAULT_SENDER,
     MAIL_DEFAULT_SENDER_EMAIL=MAIL_DEFAULT_SENDER_EMAIL,
-    SQLALCHEMY_TRACK_MODIFICATIONS=SQLALCHEMY_TRACK_MODIFICATIONS
+    SQLALCHEMY_TRACK_MODIFICATIONS=SQLALCHEMY_TRACK_MODIFICATIONS,
+    ADMINS=ADMINS
 )
 # Setup Flask-Mail
 mail = Mail(app)

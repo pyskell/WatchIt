@@ -32,22 +32,22 @@ def test_find_changed_wallets():
     assert higher_balance in changed_wallets.keys()
 
 
-def test_alert_users():
-    users = []
-    lower_balance = find_or_create_user("lower_balance@test.com", "test")
-    same_balance = find_or_create_user("same_balance@test.com", "test")
-    higher_balance = find_or_create_user("higher_balance@test.com", "test")
-    users.append(lower_balance)
-    users.append(same_balance)
-    users.append(higher_balance)
+#def test_alert_users():
+#    users = []
+#    lower_balance = find_or_create_user("lower_balance@test.com", "test")
+#    same_balance = find_or_create_user("same_balance@test.com", "test")
+#    higher_balance = find_or_create_user("higher_balance@test.com", "test")
+#    users.append(lower_balance)
+#    users.append(same_balance)
+#    users.append(higher_balance)
 
-    latest_block = get_latest_block(Networks.ETC)
-    changed_wallets = find_changed_wallets(users, latest_block)
+#    latest_block = get_latest_block(Networks.ETC)
+#    changed_wallets = find_changed_wallets(users, latest_block)
 
-    alert_users(changed_wallets)
+#    alert_users(changed_wallets)
 
-    # TODO: Find something worth testing here
-    #pprint.pprint(changed_wallets)    
+#    # TODO: Find something worth testing here
+#    #pprint.pprint(changed_wallets)    
 
 
 def test_find_new_wallets():
