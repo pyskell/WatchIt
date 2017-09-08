@@ -10,6 +10,8 @@ import pytest
 from app import app as the_app, db as the_db, init_app
 from app.manage_commands import init_db, create_user, create_wallet
 from app.networks import Networks
+from app.nodes import Parity
+from app.local_settings import ETC_RPC_ADDRESS
 
 # TODO: Update so that the ETC_WALLET_ADDRESS points to the correct test address even when running in production.
 
@@ -38,6 +40,11 @@ def db():
     Initializes and returns a SQLAlchemy DB object
     """
     return the_db
+
+
+@pytest.fixture(scope="session")
+def etc_node():
+    return Parity(Networks.ETC, ETC_RPC_ADDRESS)
 
 
 @pytest.fixture(scope="session")

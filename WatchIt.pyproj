@@ -50,7 +50,7 @@
     <Compile Include="app\local_settings.py" />
     <Compile Include="app\manage_commands.py" />
     <Compile Include="app\models.py" />
-    <Compile Include="app\queries.py">
+    <Compile Include="app\nodes.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="app\settings.py" />

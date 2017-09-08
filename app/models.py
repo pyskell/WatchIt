@@ -19,8 +19,8 @@ def create_uuid():
     return uuid.uuid4().hex
 
 
-def current_time():
-    return datetime.datetime.now()
+def default_last_emailed_time():
+    return datetime.datetime.now() - EMAIL_TIME_LIMIT
 
 
 # Define the User data model. Make sure to add the flask_user.UserMixin !!
@@ -39,7 +39,7 @@ class User(db.Model, UserMixin):
     active = db.Column("is_active", db.Boolean(), nullable=False, server_default="0")
     public_uuid = db.Column(db.String(32), nullable=True, unique=True, default=create_uuid)
     email_limit = db.Column(db.Interval(), nullable=False, default=EMAIL_TIME_LIMIT)
-    last_emailed_at = db.Column(db.DateTime(), default=current_time)
+    last_emailed_at = db.Column(db.DateTime(), default=default_last_emailed_time)
 
     # TODO: Change this to its own table of Network, Last_Block
     last_etc_block = db.Column(db.Integer(), default=ETC_MIN_BLOCK)
