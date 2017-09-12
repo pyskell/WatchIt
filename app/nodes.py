@@ -69,7 +69,7 @@ class Parity(Node):
         response = requests.post(self.node_address, data=json.dumps(payload), headers=headers).json()
 
         if "error" in response:
-            raise ChildProcessError("ETC node reported an error", response["error"])
+            raise ChildProcessError("Parity node reported an error", response["error"])
 
         return response
 
@@ -92,6 +92,7 @@ class Parity(Node):
         return balance
 
 
+    # TODO: Remove "address" argument and adjust latest_block so it's not latest_block+1
     def get_transaction_hashes(self, address, from_block, to_block=None):
         latest_block = to_block
         if latest_block is None:

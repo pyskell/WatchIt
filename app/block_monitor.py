@@ -8,14 +8,10 @@ from celery import Celery
 from app.networks import Networks
 from app.local_settings import BLOCK_CHECK_DELAY, CELERY_BROKER_URL, ETC_WALLET_ADDRESS, ETC_MIN_BLOCK, ETC_RPC_ADDRESS
 from app.manage_commands import find_or_create_network
-#from app.queries import get_latest_etc_block, get_latest_balance, record_wallets
 from app.models import User, Wallet
 from app.local_settings import MAIL_DEFAULT_SENDER_EMAIL, MAIL_DEFAULT_SENDER
 from app.nodes import Parity
 from app import db, app, mail
-
-
-# TODO: Turn this into a Class when adding more networks
 
 
 def alert_users(changed_wallets):
@@ -81,7 +77,7 @@ def update_etc():
     etc_users = db.session.query(User).filter(User.wallets.any(Wallet.network == Networks.ETC))
     changed_wallets = etc_node.find_changed_wallets(etc_users, latest_block)
 
-    etc_rpcinfo = find_or_create_network(Networks.ETC, ETC_MIN_BLOCK, ETC_WALLET_ADDRESS)
+    etc_rpcinfo = find_or_create_network(Networks.ETC, latest_block, ETC_WALLET_ADDRESS)
     if latest_block > etc_rpcinfo.last_block:
         etc_node.record_wallets(Networks.ETC, etc_rpcinfo.address, etc_rpcinfo.last_block + 1, latest_block)
     
