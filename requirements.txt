@@ -35,7 +35,7 @@ Mako==1.0.7
 MarkupSafe==1.0
 passlib==1.7.1
 pip==9.0.1
-py==1.4.34
+py==1.10.0
 pycparser==2.18
 pycryptodome==3.4.6
 python-dateutil==2.6.1
